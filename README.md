@@ -1,16 +1,31 @@
 # Building an End-to-End Open-Source Modern Data Platform for Biomedical Data
 
-This workshop at [PyBCN 2022](https://pybcn.org/events/pyday_bcn/pyday_bcn_2022/) is a detailed guide to help you navigate the modern data stack and build your own platform using open-source technologies. Data engineering has experiences enormous growth in the last years, allowing for rapid progress and innovation as more people than ever are thinking about data resources and how to better leverage them. In this talk we will explore the related technologies and build from scratch an end-to-end modern data platform for the analysis of medical data. 
 
-We will be using open-source tools and libraries, including python-based [DBT](https://getdbt.com/), [Apache Airflow](https://airflow.apache.org) and [Querybook](https://www.querybook.org/). 
+### Abstract
 
-The platform will consist of the following components: 
- - Data warehouse 
- - Data integration 
- - Data transformation 
- - Data orchestration 
- - Data visualization
+Join us for a 90-minute tutorial on how to build an end-to-end open-source modern data platform for biomedical data using Python-based tools. In this tutorial, we will explore the technologies related to data warehousing, data integration, data transformation, data orchestration, and data visualization. We will use open-source tools such as DBT, Apache Airflow, Openmetadata, and Querybook to build the platform. All materials will be available on GitHub for attendees to access.
 
+### Description
+
+Data engineering has experienced enormous growth in recent years, allowing for rapid progress and innovation as more people than ever are thinking about data resources and how to better leverage them. In this tutorial, we will build an end-to-end modern data platform for the analysis of medical data using open-source tools and libraries.
+
+We will start with an overview of the platform components, including data warehousing, data integration, data transformation, data orchestration, and data visualization. We will then dive into each component, exploring the technologies and tools that make up the platform.
+
+We will use Python-based tools such as DBT, Apache Airflow, Openmetadata, and Querybook to build the platform. We will walk through the process step-by-step, from creating a data warehouse to integrating data from multiple sources, transforming the data, orchestrating data workflows, and visualizing the data.
+
+Attendees will benefit from this tutorial if they are interested in learning how to build an end-to-end modern data platform for biomedical data using Python-based tools. They will also benefit from learning about the open-source tools and libraries used in the tutorial, which they can then apply to their own data engineering projects.
+
+No specific background knowledge is needed to attend this tutorial, although familiarity with Python and basic data engineering concepts will be helpful. All materials will be available on GitHub, and attendees will have the opportunity to follow along and build the platform themselves.
+
+## Time breakdown
+
+- Introduction and overview (10 minutes)
+- Data warehousing (20 minutes)
+- Data integration (20 minutes)
+- Data transformation (20 minutes)
+- Data orchestration (15 minutes)
+- Data visualization (15 minutes)
+- Q&A (10 minutes)
 
 ## INSTALL REQUIREMENTS
 
@@ -41,10 +56,10 @@ The platform will consist of the following components:
 - Clone this repo
 
 ```
-git clone https://github.com/alabarga/pybcn22-modern-data-stack.git
+git clone https://github.com/bsc-health-data/pydatalondon23-modern-data-stack.git
 ``` 
 
-- Generate or download [synthetic data](https://github.com/alabarga/pybcn22-modern-data-stack/blob/main/synthea/)
+- Generate or download [synthetic data](https://github.com/bsc-health-data/pydatalondon23-modern-data-stack/blob/main/synthea/)
 
 
 
