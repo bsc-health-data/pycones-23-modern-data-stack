@@ -89,7 +89,12 @@ Similarly, we can add our loader which will be required for loading the data fro
 meltano add loader target-postgres
 ``` 
 
-- Install [DBT](https://docs.getdbt.com/docs/get-started/pip-install): `pip install dbt-postgres`
+- Install [DBT](https://docs.getdbt.com/docs/get-started/pip-install): 
+
+``` 
+pip install dbt-postgres
+``` 
+
 - Install [Querybook](https://github.com/pinterest/querybook)
 
 - Install [Airflow](https://airflow.apache.org/docs/apache-airflow/stable/start.html)
