@@ -104,8 +104,8 @@ plugins:
     pip_url: git+https://gitlab.com/meltano/tap-csv.git
     config:
       files:
-        - entity: values
-          file: extract/values.csv
+        - entity: patients
+          file: extract/patients.csv
           keys:
             - id
   loaders:
