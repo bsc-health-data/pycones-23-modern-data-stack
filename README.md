@@ -89,6 +89,40 @@ Similarly, we can add our loader which will be required for loading the data fro
 meltano add loader target-postgres
 ``` 
 
+Now, let's configure our plugins in the meltano.yml file that meltano created within the dags folder when we initialised it.
+
+This file will have some configuration and we will add extra configuration for the extractor and the loader. Modify this file so it looks like this (your project_id will be different):
+
+``` 
+version: 1
+send_anonymous_usage_stats: false
+project_id: 59aca8ad-597d-47fc-a9f4-f1327774bd55
+plugins:
+  extractors:
+  - name: tap-csv
+    variant: meltano
+    pip_url: git+https://gitlab.com/meltano/tap-csv.git
+    config:
+      files:
+        - entity: values
+          file: extract/values.csv
+          keys:
+            - id
+  loaders:
+  - name: target-postgres
+    variant: transferwise
+    pip_url: pipelinewise-target-postgres
+    config:
+      host: localhost
+      port: 5432
+      user: postgres
+      dbname: datadb
+``` 
+For PostgreSQL password, we use the .env file (remember to use the same password as the one you used when running the docker container)
+``` 
+echo 'export TARGET_POSTGRES_PASSWORD=password' > .env
+``` 
+
 - Install [DBT](https://docs.getdbt.com/docs/get-started/pip-install): 
 
 ``` 
