@@ -134,7 +134,27 @@ pip install dbt-postgres
 ``` 
 git clone https://github.com/pinterest/querybook.git
 cd querybook
+make
 ``` 
+
+http://localhost:10001/
+
+Environment
+Environment ensures users on Querybook are only allowed to access to information/query they have permission to. All DataDocs, Query Engines are attached to some environments.
+
+Metastore
+Metastore is used to collect schema/table information from the metastore. Different loaders are needed depending on the use case 
+
+Query Engine
+Query engine configures the endpoints that users can query. Each query engine needs to be attached to an environment for security measures. They can also attach a metastore to allow users to see table information while writing queries.
+![](https://www.querybook.org/assets/images/Querybook_concepts-835dbf4a6c54a65117342e0dca244654.png)
+
+    A query engine can be associated with a metastore.
+    An environment can contain multiple query engines.
+    A user can be added to one or many environments, depending on the data source(s) they are granted access to and the environment(s) that have access.
+    metastore can be shared between environments since they are only referenced indirectly by query engines.
+    
+    
 - Install [Airflow](https://airflow.apache.org/docs/apache-airflow/stable/start.html)
 - Install [Datahub](https://datahubproject.io/docs/quickstart/)
 
