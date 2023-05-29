@@ -37,13 +37,14 @@ No specific background knowledge is needed to attend this tutorial, although fam
 ## INSTALL COMPONENTS
 
 - Download [synthea](https://synthetichealth.github.io/synthea/) patient data generator: [synthea-with-dependencies.jar](https://github.com/synthetichealth/synthea/releases/download/master-branch-latest/synthea-with-dependencies.jar)
-- Install [Dremio](https://www.dremio.com/): `docker pull dremio/dremio-oss`
 - Install [PostgreSQL](https://www.postgresql.org): `docker pull postgres` 
   - Install [psql](https://www.timescale.com/blog/how-to-install-psql-on-mac-ubuntu-debian-windows/)
-  - Install a SQL client such as [PgAdmin](https://www.pgadmin.org/) or [DBeaver](https://dbeaver.io/)
-- Install [DBT](https://docs.getdbt.com/docs/get-started/pip-install): `pip install dbt-postgres dbt-dremio`
-- Install [Airflow](https://airflow.apache.org/docs/apache-airflow/stable/start.html)
+  - Install a SQL client such as [PgAdmin](https://www.pgadmin.org/) or [DBeaver](https://dbeaver.io/) or [VSCode SQL tools](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools)
+- Install [Meltano](https://www.dremio.com/): `docker pull dremio/dremio-oss`
+- Install [DBT](https://docs.getdbt.com/docs/get-started/pip-install): `pip install dbt-postgres`
 - Install [Querybook](https://github.com/pinterest/querybook)
+
+- Install [Airflow](https://airflow.apache.org/docs/apache-airflow/stable/start.html)
 - Install [Datahub](https://datahubproject.io/docs/quickstart/)
 
 ## Have a drink, and relax ...
