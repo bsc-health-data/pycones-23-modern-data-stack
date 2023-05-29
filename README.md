@@ -131,6 +131,10 @@ pip install dbt-postgres
 
 - Install [Querybook](https://github.com/pinterest/querybook)
 
+``` 
+git clone https://github.com/pinterest/querybook.git
+cd querybook
+``` 
 - Install [Airflow](https://airflow.apache.org/docs/apache-airflow/stable/start.html)
 - Install [Datahub](https://datahubproject.io/docs/quickstart/)
 
