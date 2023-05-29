@@ -40,7 +40,55 @@ No specific background knowledge is needed to attend this tutorial, although fam
 - Install [PostgreSQL](https://www.postgresql.org): `docker pull postgres` 
   - Install [psql](https://www.timescale.com/blog/how-to-install-psql-on-mac-ubuntu-debian-windows/)
   - Install a SQL client such as [PgAdmin](https://www.pgadmin.org/) or [DBeaver](https://dbeaver.io/) or [VSCode SQL tools](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools)
-- Install [Meltano](https://www.dremio.com/): `docker pull dremio/dremio-oss`
+- Install [Meltano](https://www.meltano.com/): 
+
+When it comes to installing meltano, the guide in its website is pretty good, this is just a summary of it https://meltano.com/docs/installation.html#local-installation
+
+The process is simple: create your venv, activate it and install meltano with pip (this is to be run from a pre-created folder where you want the project to live)
+
+``` 
+python3 -m venv .venv
+source .venv/bin/activate
+``` 
+``` 
+# to avoid any issues during the installation we will update pip
+python -m pip install -U pip
+python -m pip install meltano
+``` 
+Now, let's setup meltano. First, let's create out meltano project. We will call it demo
+``` 
+meltano init demo
+``` 
+
+``` 
+cd demo
+``` 
+
+We are now going to need Extractors and Loaders to extract data from a source a to load it somewhere else. Remember, once it's loaded, we could transform it with dbt.
+
+We will use a csv extractor and we will load it to an instance of PostgreSQL. 
+
+Setting up the extractor and the loader
+
+Now that we have our db instance up and running, let's setup a csv extractor.
+To find the right extractor, we can explore them by doing:
+
+``` 
+meltano discover extractors
+``` 
+And then we can add it (and test it):
+``` 
+meltano add extractor tap-csv --variant=meltano
+meltano invoke tap-csv --version
+``` 
+For more details see https://hub.meltano.com/extractors/csv
+
+Similarly, we can add our loader which will be required for loading the data from the csv file to PostgreSQL
+
+``` 
+meltano add loader target-postgres
+``` 
+
 - Install [DBT](https://docs.getdbt.com/docs/get-started/pip-install): `pip install dbt-postgres`
 - Install [Querybook](https://github.com/pinterest/querybook)
 
