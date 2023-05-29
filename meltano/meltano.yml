@@ -1,0 +1,59 @@
+version: 1
+default_environment: dev
+environments:
+- name: dev
+- name: staging
+- name: prod
+project_id: 37d81821-1385-4d4e-afae-1ea5cbd06ab5
+plugins:
+  extractors:
+  - name: tap-s3-csv
+    variant: transferwise
+    pip_url: pipelinewise-tap-s3-csv
+    config:
+      bucket: test
+      tables:
+      - search_prefix: ''
+        search_pattern: raw_customers.csv
+        table_name: raw_customers
+        key_properties: [id]
+        delimiter: ','
+      - search_prefix: ''
+        search_pattern: raw_orders.csv
+        table_name: raw_orders
+        key_properties: [id]
+        delimiter: ','
+      - search_prefix: ''
+        search_pattern: raw_payments.csv
+        table_name: raw_payments
+        key_properties: [id]
+        delimiter: ','
+      start_date: 2000-01-01T00:00:00Z
+      aws_endpoint_url: http://host.docker.internal:5005
+      aws_access_key_id: s
+      aws_secret_access_key: s
+      aws_default_region: us-east-1
+
+  loaders:
+  - name: target-postgres
+    variant: transferwise
+    pip_url: pipelinewise-target-postgres
+    config:
+      host: host.docker.internal
+      port: 5432
+      user: admin
+      password: password
+      dbname: demo
+  
+  transformers:
+  - name: dbt-postgres
+    variant: dbt-labs
+    pip_url: dbt-core~=1.1.0 dbt-postgres~=1.1.0
+    config:
+      host: host.docker.internal
+      user: admin
+      password: password
+      port: 5432
+      dbname: demo
+      schema: analytics
+      source_schema: tap_s3_csv
