@@ -59,7 +59,7 @@ When it comes to installing meltano, the guide in its website is pretty good, th
 The process is simple: create your venv, activate it and install meltano with pip (this is to be run from a pre-created folder where you want the project to live)
 
 ``` 
-python3 -m venv .venv
+python3.9 -m venv .venv
 source .venv/bin/activate
 ``` 
 ``` 
