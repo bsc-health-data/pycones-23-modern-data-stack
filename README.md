@@ -40,9 +40,20 @@ No specific background knowledge is needed to attend this tutorial, although fam
 - Install [PostgreSQL](https://www.postgresql.org): `docker pull postgres` 
   - Install [psql](https://www.timescale.com/blog/how-to-install-psql-on-mac-ubuntu-debian-windows/)
   - Install a SQL client such as [PgAdmin](https://www.pgadmin.org/) or [DBeaver](https://dbeaver.io/) or [VSCode SQL tools](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools)
+- Install [Querybook](https://github.com/pinterest/querybook)
+
+``` 
+git clone https://github.com/pinterest/querybook.git
+cd querybook
+make
+
+## WORKSHOP
+
 - Install [Meltano](https://www.meltano.com/): 
 
 When it comes to installing meltano, the guide in its website is pretty good, this is just a summary of it https://meltano.com/docs/installation.html#local-installation
+
+
 
 The process is simple: create your venv, activate it and install meltano with pip (this is to be run from a pre-created folder where you want the project to live)
 
@@ -59,6 +70,8 @@ Now, let's setup meltano. First, let's create out meltano project. We will call 
 ``` 
 meltano init demo
 ``` 
+
+https://docs.meltano.com/getting-started/part1
 
 ``` 
 cd demo
@@ -118,15 +131,48 @@ plugins:
       user: postgres
       dbname: datadb
 ``` 
+
+https://hub.meltano.com/loaders/target-postgres--transferwise/
+
+``` 
+docker run --name demo_postgres -e POSTGRES_PASSWORD=londonpie -e POSTGRES_USER=postgres -p 5433:5432 -v ${PWD}/postgres:/var/lib/postgresql/data -v ${PWD}/backup:/backup -d postgres 
+``` 
+
 For PostgreSQL password, we use the .env file (remember to use the same password as the one you used when running the docker container)
 ``` 
 echo 'export TARGET_POSTGRES_PASSWORD=password' > .env
+``` 
+
+``` 
+meltano config target-postgres set default_target_schema raw
+```
+
+meltano run tap-csv target-postgres
+
+``` 
+meltano elt tap-csv target-postgres --transform=skip
 ``` 
 
 - Install [DBT](https://docs.getdbt.com/docs/get-started/pip-install): 
 
 ``` 
 pip install dbt-postgres
+``` 
+
+``` 
+meltano add utility dbt-postgres
+``` 
+
+``` 
+meltano add utility superset
+``` 
+
+``` 
+- name: superset
+    variant: apache
+    pip_url: apache-superset>=2.0.0 markupsafe==2.0.1 Werkzeug==2.0.3 WTForms==2.3.0 duckdb-engine==0.6.4 cryptography==3.4.7
+    config:
+      ENABLE_PROXY_FIX: true
 ``` 
 
 - Install [Querybook](https://github.com/pinterest/querybook)
