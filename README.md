@@ -46,6 +46,7 @@ No specific background knowledge is needed to attend this tutorial, although fam
 git clone https://github.com/pinterest/querybook.git
 cd querybook
 make
+```
 
 ## WORKSHOP
 
