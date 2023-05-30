@@ -48,6 +48,17 @@ cd querybook
 make
 ```
 
+
+## FIRST STEPS
+
+- Clone this repo
+
+```
+git clone https://github.com/bsc-health-data/pydatalondon23-modern-data-stack.git
+``` 
+
+- Generate or download [synthetic data](https://github.com/bsc-health-data/pydatalondon23-modern-data-stack/blob/main/synthea/)
+
 ## WORKSHOP
 
 - Install [Meltano](https://www.meltano.com/): 
@@ -209,15 +220,6 @@ Query engine configures the endpoints that users can query. Each query engine ne
 ![](https://i.ytimg.com/vi/y3TxcejHw-4/hqdefault.jpg)
 - https://www.youtube.com/watch?v=y3TxcejHw-4
 
-## FIRST STEPS
-
-- Clone this repo
-
-```
-git clone https://github.com/bsc-health-data/pydatalondon23-modern-data-stack.git
-``` 
-
-- Generate or download [synthetic data](https://github.com/bsc-health-data/pydatalondon23-modern-data-stack/blob/main/synthea/)
 
 
 
