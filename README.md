@@ -132,8 +132,7 @@ plugins:
       user: postgres
       dbname: datadb
 ``` 
-
-https://hub.meltano.com/loaders/target-postgres--transferwise/
+https://hub.meltano.com/loaders/target-postgres--meltanolabs/
 
 ``` 
 docker run --name demo_postgres -e POSTGRES_PASSWORD=londonpie -e POSTGRES_USER=postgres -p 5433:5432 -v ${PWD}/postgres:/var/lib/postgresql/data -v ${PWD}/backup:/backup -d postgres 
