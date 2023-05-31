@@ -196,6 +196,18 @@ make
 
 http://localhost:10001/
 
+- Install OpenMetadata
+
+``` 
+pip install openmetadata-ingestion[docker]
+metadata docker --start -db postgres
+``` 
+
+``` 
+curl -SL https://github.com/open-metadata/OpenMetadata/releases/download/1.0.2-release/docker-compose-postgres.yml -o docker-compose-postgres.yml
+docker compose up -d
+``` 
+
 Environment
 Environment ensures users on Querybook are only allowed to access to information/query they have permission to. All DataDocs, Query Engines are attached to some environments.
 
