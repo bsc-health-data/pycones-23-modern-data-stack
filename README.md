@@ -222,6 +222,15 @@ meltano add utility superset
       ENABLE_PROXY_FIX: true
 ``` 
 
+``` 
+> meltano config superset set SECRET_KEY $(openssl rand -base64 42)
+> meltano invoke superset:create-admin
+> meltano invoke superset:ui
+
+``` 
+
+You can also `meltano invoke superset:load-examples` load some example data to play with
+
 - Install [Querybook](https://github.com/pinterest/querybook)
 
 ``` 
