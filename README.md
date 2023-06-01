@@ -234,6 +234,8 @@ meltano add utility superset
 
 You can also `meltano invoke superset:load-examples` load some example data to play with
 
+The go to http://localhost:8088 and start analyzing your data
+
 - Install [Querybook](https://github.com/pinterest/querybook)
 
 ``` 
