@@ -1,0 +1,16 @@
+
+# For more information on how to configure this file, please see:
+# https://github.com/fishtown-analytics/dbt/blob/master/sample.profiles.yml
+
+iomed:
+  target: synthea
+  outputs:
+    synthea:
+      type: postgres
+      threads: 1
+      host: "localhost"
+      port: 5000
+      user: "{{ env_var('DB_USER') }}"
+      pass: "{{ env_var('DB_PASS') }}"
+      dbname: "iomed"
+      schema: "cdm"

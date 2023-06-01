@@ -1,59 +1,160 @@
 version: 1
+send_anonymous_usage_stats: false
+project_id: 59aca8ad-597d-47fc-a9f4-f1327774bd55
 default_environment: dev
 environments:
 - name: dev
 - name: staging
 - name: prod
-project_id: 37d81821-1385-4d4e-afae-1ea5cbd06ab5
 plugins:
   extractors:
-  - name: tap-s3-csv
-    variant: transferwise
-    pip_url: pipelinewise-tap-s3-csv
+  - name: tap-csv
+    variant: meltano
+    pip_url: git+https://gitlab.com/meltano/tap-csv.git
     config:
-      bucket: test
+      files:
+      - entity: patients
+        file: ../synthea/data/csv/patients.csv
+        keys:
+        - Id
+      - entity: allergies
+        file: ../synthea/data/csv/allergies.csv
+        keys:
+        - START
+        - PATIENT
+        - ENCOUNTER
+        - CODE
+        - SYSTEM
+      - entity: careplans
+        file: ../synthea/data/csv/careplans.csv
+        keys:
+        - Id
+      - entity: claims
+        file: ../synthea/data/csv/claims.csv
+        keys:
+        - Id
+      - entity: claims_transactions
+        file: ../synthea/data/csv/claims_transactions.csv
+        keys:
+        - ID
+      - entity: conditions
+        file: ../synthea/data/csv/conditions.csv
+        keys:
+        - START
+        - PATIENT
+        - ENCOUNTER
+        - CODE
+      - entity: devices
+        file: ../synthea/data/csv/devices.csv
+        keys:
+        - START
+        - PATIENT
+        - ENCOUNTER
+        - CODE
+      - entity: encounters
+        file: ../synthea/data/csv/encounters.csv
+        keys:
+        - Id
+      - entity: imaging_studies
+        file: ../synthea/data/csv/imaging_studies.csv
+        keys:
+        - Id
+      - entity: immunizations
+        file: ../synthea/data/csv/immunizations.csv
+        keys:
+        - DATE
+        - PATIENT
+        - ENCOUNTER
+        - CODE
+      - entity: medications
+        file: ../synthea/data/csv/medications.csv
+        keys:
+        - START
+        - PATIENT
+        - PAYER
+        - ENCOUNTER
+        - CODE
+      - entity: observations
+        file: ../synthea/data/csv/observations.csv
+        keys:
+        - DATE
+        - PATIENT
+        - CODE
+      - entity: payers
+        file: ../synthea/data/csv/payers.csv
+        keys:
+        - Id
+      - entity: payer_transitions
+        file: ../synthea/data/csv/payer_transitions.csv
+        keys:
+        - PATIENT
+        - START_DATE
+        - END_DATE
+        - PAYER
+      - entity: procedures
+        file: ../synthea/data/csv/procedures.csv
+        keys:
+        - START
+        - PATIENT
+        - ENCOUNTER
+        - CODE
+      - entity: providers
+        file: ../synthea/data/csv/providers.csv
+        keys:
+        - Id
+      - entity: supplies
+        file: ../synthea/data/csv/supplies.csv
+        keys:
+        - DATE
+        - PATIENT
+        - ENCOUNTER
+        - CODE
+  - name: tap-spreadsheets-anywhere
+    variant: ets
+    pip_url: git+https://github.com/ets/tap-spreadsheets-anywhere.git
+    config:
       tables:
-      - search_prefix: ''
-        search_pattern: raw_customers.csv
-        table_name: raw_customers
-        key_properties: [id]
-        delimiter: ','
-      - search_prefix: ''
-        search_pattern: raw_orders.csv
-        table_name: raw_orders
-        key_properties: [id]
-        delimiter: ','
-      - search_prefix: ''
-        search_pattern: raw_payments.csv
-        table_name: raw_payments
-        key_properties: [id]
-        delimiter: ','
-      start_date: 2000-01-01T00:00:00Z
-      aws_endpoint_url: http://host.docker.internal:5005
-      aws_access_key_id: s
-      aws_secret_access_key: s
-      aws_default_region: us-east-1
-
+      - path: file:///home/alabarga/Teaching/pydatalondon23-modern-data-stack/omop-cdm/vocabularies
+        name: concept
+        pattern: CONCEPT.csv
+        format: csv
+        delimiter: "\t"
+        start_date: '1900-05-01T00:00:00Z'
+        key_properties: [concept_id]
+      - name: vocabulary
+        path: file:///home/alabarga/Teaching/pydatalondon23-modern-data-stack/omop-cdm/vocabularies
+        pattern: VOCABULARY.csv
+        format: csv
+        delimiter: "\t"
+        start_date: '2017-05-01T00:00:00Z'
+        key_properties: [vocabulary_id]
+      - name: concept_relationship
+        path: file://../omop-cdm/vocabularies/
+        pattern: CONCEPT_RELATIONSHIP.csv
+        format: csv
+        delimiter: "\t"
+        start_date: '2017-05-01T00:00:00Z'
+        key_properties: [concept_id_1, concept_id_2, relationship_id]
   loaders:
   - name: target-postgres
-    variant: transferwise
-    pip_url: pipelinewise-target-postgres
+    variant: meltanolabs
+    pip_url: https://github.com/MeltanoLabs/target-postgres.git
     config:
-      host: host.docker.internal
-      port: 5432
-      user: admin
-      password: password
+      host: localhost
+      port: 5433
+      user: postgres
       dbname: demo
-  
-  transformers:
+      default_target_schema: vocabularies
+
+  utilities:
   - name: dbt-postgres
     variant: dbt-labs
-    pip_url: dbt-core~=1.1.0 dbt-postgres~=1.1.0
+    pip_url: dbt-core~=1.3.0 dbt-postgres~=1.3.0 git+https://github.com/meltano/dbt-ext.git@main
     config:
-      host: host.docker.internal
-      user: admin
-      password: password
-      port: 5432
-      dbname: demo
-      schema: analytics
-      source_schema: tap_s3_csv
+      project_dir: /home/alabarga/Teaching/pydatalondon23-modern-data-stack/synthea-etl/
+  - name: superset
+    variant: apache
+    pip_url: apache-superset==2.0.1 markupsafe Werkzeug WTForms==2.3.3 duckdb-engine
+      pyopenssl==22.1.0 cryptography pillow psycopg2
+    config:
+      ENABLE_PROXY_FIX: true

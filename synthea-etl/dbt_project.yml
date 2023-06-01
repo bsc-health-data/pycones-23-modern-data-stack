@@ -1,0 +1,60 @@
+
+# Name your package! Package names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
+name: 'synthea'
+version: '1.0'
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project. Profiles contain
+# database connection information, and should be configured in the  ~/.dbt/profiles.yml file
+profile: 'meltano'
+
+vars:
+    shard_id: "0"
+
+# These configurations specify where dbt should look for different types of files.
+# The `source-paths` config, for example, states that source models can be found
+# in the "models/" directory. You probably won't need to change these!
+model-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+seed-paths: ["data"]
+macro-paths: ["macros"]
+log-path: "/tmp/logs"
+target-path: "/tmp/target"  # directory which will store compiled SQL files
+packages-install-path: "/tmp/packages"
+clean-targets:         # directories to be removed by `dbt clean`
+    - "target"
+    - "dbt_modules"
+
+# You can define configurations for models in the `source-paths` directory here.
+# Using these configurations, you can enable or disable models, change how they
+# are materialized, and more!
+
+# In this example config, we tell dbt to build all models in the example/ directory
+# as views (the default). These settings can be overridden in the individual model files
+# using the `{ config(...) }` macro.
+
+models:
+  synthea:
+    derived:
+        +schema: cdm_dbt
+    mappings:
+        +schema: cdm_dbt
+
+  +pre-hook: "{{ logging.log_model_start_event() }}"
+  +post-hook:
+      - "{{ logging.log_model_end_event() }}"
+
+# Define seeds here
+seeds:
+  synthea:
+    +schema: raw
+
+  +pre-hook: "{{ logging.log_model_start_event() }}"
+  +post-hook:
+    - "{{ logging.log_model_end_event() }}"
+
+on-run-start:
+  - "CREATE EXTENSION IF NOT EXISTS tablefunc;"

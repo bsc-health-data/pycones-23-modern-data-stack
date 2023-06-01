@@ -1,0 +1,12 @@
+iomed:
+  target: synthea
+  outputs:
+    synthea:
+      type: postgres
+      threads: 1
+      host: localhost
+      port: 5000
+      user: "postgres"
+      pass: "{{ env_var('PASS') }}"
+      dbname: "iomed"
+      schema: "cdm"

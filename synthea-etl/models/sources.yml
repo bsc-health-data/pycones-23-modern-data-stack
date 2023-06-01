@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: raw # tables copied from source DB
+    database: hospital_edge
+    schema: raw
+    tables:
+      - name: allergies
+      - name: conditions
+      - name: immunizations
+      - name: encounters
+      - name: medications
+      - name: observations
+      - name: procedures
+      - name: patients
+
+  - name: vocabularies # OMOP CDM tables
+    database: hospital_edge
+    schema: vocabularies
+    tables:
+      - name: concept
+      - name: concept_relationship
+      - name: concept_ancestor
+      - name: concept_synonym
+      - name: concept_class
+      - name: relationship
+      - name: domain
+      - name: drug_strength
+      - name: source_to_concept_map
+      - name: vocabulary
