@@ -284,6 +284,7 @@ and configure the system.
 
 - Install [Airflow](https://airflow.apache.org/docs/apache-airflow/stable/start.html)
 - Install [Datahub](https://datahubproject.io/docs/quickstart/)
+- INstall [Lightdash](https://www.lightdash.com/)
 
 ### Have a drink, and relax ...
 
