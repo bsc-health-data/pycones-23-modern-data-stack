@@ -111,11 +111,13 @@ meltano invoke tap-csv --version
 ``` 
 For more details see https://hub.meltano.com/extractors/csv
 
-Similarly, we can add our loader which will be required for loading the data from the csv file to PostgreSQL
+Similarly, we can add our loader which will be required for loading the data from the csv file to PostgreSQL. 
 
 ``` 
 meltano add loader target-postgres --variant meltanolabs
 ``` 
+
+https://hub.meltano.com/loaders/target-postgres--meltanolabs/
 
 Now, let's configure our plugins in the meltano.yml file that meltano created within the dags folder when we initialised it.
 
@@ -146,7 +148,8 @@ plugins:
       user: postgres
       dbname: datadb
 ``` 
-https://hub.meltano.com/loaders/target-postgres--meltanolabs/
+or download the provided [meltano.yml](https://github.com/bsc-health-data/pydatalondon23-modern-data-stack/blob/main/meltano/meltano.yml)
+
 
 But then, we need a database to load our date. We will use docker to bring up a PostgreSQL instance
 
