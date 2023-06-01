@@ -195,6 +195,20 @@ or as a Meltano utility
 ``` 
 meltano add utility dbt-postgres
 ``` 
+
+**DBT tests**
+
+``` 
+
+{% test not_null(model, column_name) %}
+
+    select *
+    from {{ model }}
+    where {{ column_name }} is null
+
+{% endtest %}
+``` 
+
 ### Data gobernance with OpenMetadata
 
 - Install OpenMetadata
