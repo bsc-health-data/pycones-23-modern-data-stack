@@ -158,8 +158,10 @@ echo 'export TARGET_POSTGRES_PASSWORD=password' > .env
 meltano config target-postgres set default_target_schema raw
 ```
 
+``` 
 meltano run tap-csv target-postgres
-
+``` 
+or 
 ``` 
 meltano elt tap-csv target-postgres --transform=skip
 ``` 
