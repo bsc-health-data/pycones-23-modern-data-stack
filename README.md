@@ -290,6 +290,19 @@ select * from person
 
 **DBT tests**
 
+
+``` 
+version: 2
+
+models:
+  - name: stg_person
+    columns:
+      - name: person_id
+        tests:
+          - unique
+          - not_null
+          
+
 ``` 
 {% test not_null(model, column_name) %}
 
