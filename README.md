@@ -297,7 +297,7 @@ curl -SL https://github.com/open-metadata/OpenMetadata/releases/download/1.0.2-r
 docker compose up -d
 ``` 
 
-Then go to http://localhost:8585
+Then go to http://localhost:8585 (admin/admin)
 
 ### Analyzing data with Superset and Querybook
 
