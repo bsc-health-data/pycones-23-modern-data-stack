@@ -228,7 +228,7 @@ docker compose up -d
 - Install [Superset](https://github.com/apache/superset) 
 
 ``` 
-meltano add utility superset
+meltano add utility superset --variant apache
 ``` 
 
 ``` 
