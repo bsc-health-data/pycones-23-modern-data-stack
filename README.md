@@ -196,6 +196,23 @@ or as a Meltano utility
 meltano add utility dbt-postgres
 ``` 
 
+Configure:
+
+``` 
+meltano config dbt-postgres list
+meltano config dbt-postgres set --interactive
+``` 
+or add env variables to `.env` 
+
+``` 
+DBT_POSTGRES_HOST=localhost
+DBT_POSTGRES_PORT=5433
+DBT_POSTGRES_DATABASE=hospital_edge
+DBT_POSTGRES_SCHEMA=cdm
+DBT_POSTGRES_USER=postgres
+DBT_POSTGRES_PASSWORD=marcisright
+``` 
+
 **DBT models**
 - sources.yml
 ``` 
