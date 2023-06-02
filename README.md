@@ -283,6 +283,15 @@ select * from person
 {% endtest %}
 ``` 
 
+**DBT artifacts**
+
+Most dbt commands produce artifacts:
+
+- manifest.json: produced by commands that read and understand your project
+- run results.json: produced by commands that run, compile, or catalog nodes in your DAG
+- catalog.json: produced by docs generate
+- sources.json: produced by source freshness     
+
 ### Data gobernance with OpenMetadata
 
 - Install OpenMetadata
