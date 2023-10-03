@@ -151,7 +151,7 @@ plugins:
       host: localhost
       port: 5432
       user: postgres
-      dbname: datadb
+      dbname: demo
 ``` 
 or download the provided [meltano.yml](https://github.com/bsc-health-data/pydatalondon23-modern-data-stack/blob/main/meltano/meltano.yml)
 
@@ -160,6 +160,16 @@ But then, we need a database to load our date. We will use docker to bring up a 
 
 ``` 
 docker run --name demo_postgres -e POSTGRES_PASSWORD=londonpie -e POSTGRES_USER=postgres -p 5433:5432 -v ${PWD}/postgres:/var/lib/postgresql/data -v ${PWD}/backup:/backup -d postgres 
+```
+
+```
+>> docker exec -it demo_postgres
+
+root@691c7587dc9d:/# psql -h localhost -U postgres 
+psql (15.4 (Debian 15.4-1.pgdg120+1))
+Type "help" for help.
+
+postgres=# create database demo;
 ``` 
 
 We can check the configuration needed
