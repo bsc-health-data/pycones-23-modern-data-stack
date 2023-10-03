@@ -117,7 +117,6 @@ Check Extractors web page: https://hub.meltano.com/extractors/
 And then we can add it (and test it):
 ``` 
 meltano add extractor tap-csv --variant=meltano
-meltano invoke tap-csv --help
 ``` 
 For more details see https://hub.meltano.com/extractors/csv
 
@@ -146,13 +145,13 @@ plugins:
     config:
       files:
         - entity: patients
-          file: ../synthea/patients.csv
+          file: ../synthea/data/csv/patients.csv
           keys:
-            - id
+            - Id
   loaders:
   - name: target-postgres
     variant: meltanolabs
-    pip_url: https://github.com/MeltanoLabs/target-postgres.git
+    pip_url: meltanolabs-target-postgres~=0.0.7
     config:
       host: localhost
       port: 5432
