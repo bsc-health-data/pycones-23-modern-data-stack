@@ -473,6 +473,13 @@ Try to write a test query, select `postgresql`, and run it.
 
 ### Have a drink, and relax ...
 
+### Issues
+
+- https://github.com/dbt-labs/dbt-core/pull/8680
+- https://github.com/dbt-labs/dbt-docs/issues/187
+
+
+
 ![](https://i.ytimg.com/vi/y3TxcejHw-4/hqdefault.jpg)
 - https://www.youtube.com/watch?v=y3TxcejHw-4
 
