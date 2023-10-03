@@ -129,6 +129,7 @@ This file will have some configuration and we will add extra configuration for t
 
 ``` 
 version: 1
+default_environment: dev
 send_anonymous_usage_stats: false
 project_id: 59aca8ad-597d-47fc-a9f4-f1327774bd55
 plugins:
