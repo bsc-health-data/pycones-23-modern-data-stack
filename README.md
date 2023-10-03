@@ -354,7 +354,7 @@ curl -SL https://github.com/open-metadata/OpenMetadata/releases/download/1.0.2-r
 docker compose up -d
 ``` 
 
-Then go to http://localhost:8585 (admin/admin). The insgetion service (Airflow) runs at http://localhost:8080
+Then go to http://localhost:8585 (admin/admin). The ingestion service (Airflow) runs at http://localhost:8080
 
 ### Analyzing data with Superset and Querybook
 
