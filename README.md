@@ -76,7 +76,7 @@ source .venv/bin/activate
 ``` 
 # to avoid any issues during the installation we will update pip
 python -m pip install -U pip
-python -m pip install meltano
+python -m pip install meltano==2.20.0
 ``` 
 Now, let's setup meltano. First, let's create out meltano project. We will call it demo
 
