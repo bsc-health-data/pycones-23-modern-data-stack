@@ -55,10 +55,10 @@ make
 - Clone this repo
 
 ```
-git clone https://github.com/bsc-health-data/pydatalondon23-modern-data-stack.git
+git clone https://github.com/bsc-health-data/pycones-23-modern-data-stack.git
 ``` 
 
-- Generate or download [synthetic data](https://github.com/bsc-health-data/pydatalondon23-modern-data-stack/blob/main/synthea/)
+- Generate or download [synthetic data](https://github.com/bsc-health-data/pycones-23-modern-data-stack/blob/main/synthea/)
 
 ## WORKSHOP
 
