@@ -111,7 +111,7 @@ Check Extractors web page: https://hub.meltano.com/extractors/
 And then we can add it (and test it):
 ``` 
 meltano add extractor tap-csv --variant=meltano
-meltano invoke tap-csv --version
+meltano invoke tap-csv --help
 ``` 
 For more details see https://hub.meltano.com/extractors/csv
 
