@@ -103,7 +103,11 @@ To find the right extractor, we can explore them by doing:
 
 ``` 
 meltano discover extractors
-``` 
+```
+NOTE: this command is **DEPRECATED**
+
+Check Extractors web page: https://hub.meltano.com/extractors/
+
 And then we can add it (and test it):
 ``` 
 meltano add extractor tap-csv --variant=meltano
