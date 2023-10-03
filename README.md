@@ -88,7 +88,13 @@ Check Meltano [getting started guide](https://docs.meltano.com/getting-started/p
 
 ``` 
 cd demo
-``` 
+```
+
+Add environment
+
+```
+meltano environment add dev
+```
 
 We are now going to need Extractors and Loaders to extract data from a source and to load it somewhere else. Once data is loaded, we could transform it with dbt. (ELT)
 
