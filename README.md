@@ -121,7 +121,7 @@ Similarly, we can add our loader which will be required for loading the data fro
 meltano add loader target-postgres --variant meltanolabs
 ``` 
 
-https://hub.meltano.com/loaders/target-postgres--meltanolabs/
+For more details see https://hub.meltano.com/loaders/target-postgres--meltanolabs/
 
 Now, let's configure our plugins in the meltano.yml file that meltano created within the dags folder when we initialised it.
 
