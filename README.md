@@ -151,7 +151,7 @@ plugins:
       host: localhost
       port: 5432
       user: postgres
-      dbname: demo
+      database: demo
 ``` 
 or download the provided [meltano.yml](https://github.com/bsc-health-data/pydatalondon23-modern-data-stack/blob/main/meltano/meltano.yml)
 
