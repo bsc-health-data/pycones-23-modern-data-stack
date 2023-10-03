@@ -104,7 +104,7 @@ To find the right extractor, we can explore them by doing:
 ``` 
 meltano discover extractors
 ```
-NOTE: this command is **DEPRECATED**
+NOTE: this command is **DEPRECATED** is later meltano versions
 
 Check Extractors web page: https://hub.meltano.com/extractors/
 
@@ -205,10 +205,10 @@ meltano elt tap-csv target-postgres --transform=skip
 pip install dbt-postgres
 ``` 
 
-or as a Meltano utility
+and then add a Meltano transformer
 
 ``` 
-meltano add utility dbt-postgres
+meltano add transformer dbt-postgres
 ``` 
 
 Configure:
