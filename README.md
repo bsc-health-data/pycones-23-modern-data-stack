@@ -396,11 +396,12 @@ or run it directly
 ``` 
 cd querybook
 docker compose up
-
 ``` 
 Then go to http://localhost:10001/
 
-and configure the system.
+Sign up as a new user and use the demo setup. The first signed up user will be added as the admin.
+
+ Open the admin tool [http://localhost:10001/admin](http://localhost:10001/admin) and configure the system.
 
 - **Environment**: Environment ensures users on Querybook are only allowed to access to information/query they have permission to. All DataDocs, Query Engines are attached to some environments.
 - **Metastore**: Metastore is used to collect schema/table information from the metastore. Different loaders are needed depending on the use case 
@@ -412,7 +413,58 @@ and configure the system.
     - An environment can contain multiple query engines.
     - A user can be added to one or many environments, depending on the data source(s) they are granted access to and the environment(s) that have access.
     - Metastore can be shared between environments since they are only referenced indirectly by query engines.
-    
+
+ Click `Query Engine` to add a new query engine
+
+    - Provide a name for the query engine.
+    - Select `Postgresql` as the language.
+    - Select `sqlalchemy` as the executor.
+    - Input the connection string, which should look like
+        ```
+        postgresql://<username>:<password>@<server-host>:<port>/<database>
+        ```
+        Please refer to the SqlAlchemy [documentation](https://docs.sqlalchemy.org/en/20/core/engines.html#postgresql) for the connection string format.
+    - Select `SelectOneChecker` as the status checker
+
+    :::caution About localhost
+
+    If Querybook and PostgresSQL are both running on the same machine, like is our case, you'll need some extra change.
+
+    **Mac or Ubuntu**
+
+    Please use `host.docker.internal` instead of `localhost` as the server address. e.g. `postgresql://<username>:<password>@host.docker.internal:5432/<database>`
+
+    **For other Linux distros**
+
+    Before executing `make` pr `docker-compose`
+
+    - update `docker-compose.yml` to add `network_mode=host` for below services
+        - web
+        - worker
+        - scheduler
+    - update `containers/bundled_querybook_config.yaml` to use `localhost` instead of service names
+
+    ```yaml
+    DATABASE_CONN: mysql+pymysql://test:passw0rd@localhost:3306/querybook2?charset=utf8mb4
+    REDIS_URL: redis://localhost:6379/0
+    ELASTICSEARCH_HOST: localhost:9200
+    ```
+
+    Then keep using `localhost` as the server host in the connection string
+    :::
+
+Click `Test Connection` to see if it can connect to the database correctly. If it fails, go back and check the settings above and ensure that the database server is ready for connection. You can use command-line tools like `psql` to try to connect with the same connection settings.
+
+Click `Save` to create the engine.
+
+Go to the `Environment` tab and select `demo_environment`. You can also create a new environment if you like.
+
+For `Query Engines`, select `postgresql` from the dropdown list, and click `Add Query Engine`.
+
+Open [http://localhost:10001/demo_environment/adhoc/](http://localhost:10001/demo_environment/adhoc/). Switch to the new demo environment
+
+Try to write a test query, select `postgresql`, and run it.
+     
 ### Extras
 
 - Install [Airflow](https://airflow.apache.org/docs/apache-airflow/stable/start.html)
