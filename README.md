@@ -226,12 +226,16 @@ or add env variables to `.env`
 
 ``` 
 DBT_POSTGRES_HOST=localhost
-DBT_POSTGRES_PORT=5433
-DBT_POSTGRES_DATABASE=hospital_edge
+DBT_POSTGRES_PORT=5432
+DBT_POSTGRES_DATABASE=demo
 DBT_POSTGRES_SCHEMA=cdm
 DBT_POSTGRES_USER=postgres
 DBT_POSTGRES_PASSWORD=password
 ``` 
+
+``` 
+meltano invoke dbt-postgre:compile
+```
 
 **DBT models**
 - sources.yml
