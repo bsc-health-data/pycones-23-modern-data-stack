@@ -246,7 +246,7 @@ DBT_POSTGRES_PASSWORD=password
 ``` 
 
 ``` 
-meltano invoke dbt-postgre:compile
+meltano invoke dbt-postgres:compile
 ```
 
 **DBT models**
