@@ -75,8 +75,8 @@ source .venv/bin/activate
 ``` 
 ``` 
 # to avoid any issues during the installation we will update pip
-python -m pip install -U pip
-python -m pip install meltano==2.20.0
+python -m pip install -U pip setuptools wheel
+python -m pip install meltano
 ``` 
 Now, let's setup meltano. First, let's create out meltano project. We will call it demo
 
@@ -210,6 +210,8 @@ meltano elt tap-csv target-postgres --transform=skip
 pip install dbt-postgres
 ``` 
 
+See issues below
+
 and then add a Meltano transformer
 
 ``` 
@@ -300,7 +302,12 @@ select * from person
 
 **Macros**
 
-``` 
+```
+
+{% macro create_id_from_str(text) %}
+    abs(('x' || substr(md5({{ text }}), 1, 16))::bit(64)::bigint)
+{% endmacro %}
+
 -- OMOP TABLE: person
 --- Macro to transform 'M' and 'F' sex values into their concept_id
 {% macro gender_concept_id(sex) %}
@@ -310,6 +317,23 @@ select * from person
       ELSE 8551::int -- Unknown
       END)
 {% endmacro %}
+
+-- Macro to transform race values into their concept_id
+{% macro race_concept_id(race) %}
+(CASE WHEN {{ race }} = 'white' THEN 8527::int -- White
+      WHEN {{ race }} = 'black' THEN 8516::int -- Black
+      WHEN {{ race }} = 'asian' THEN 8515::int -- Asian
+      ELSE 0::int -- No data
+      END)
+{% endmacro %}
+
+-- Macro to transform ethnicity values into their concept_id
+{% macro ethnicity_concept_id(race) %}
+(CASE WHEN {{ race }} = 'hispanic' THEN 38003563::int -- Hispanic or Latino
+      ELSE 0::int
+      END)
+{% endmacro %}
+
 ``` 
 
 **DBT tests**
@@ -487,6 +511,12 @@ Try to write a test query, select `postgresql`, and run it.
 - https://github.com/dbt-labs/dbt-core/pull/8680
 - https://github.com/dbt-labs/dbt-docs/issues/187
 - https://github.com/dbt-labs/dbt-docs/issues/187
+
+```
+python -m pip uninstall snowplow-tracker
+python -m pip uninstall minimal-snowplow-tracker
+python -m pip install snowplow-tracker
+```
 
 
 
