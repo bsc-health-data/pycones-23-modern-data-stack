@@ -173,8 +173,9 @@ or download the provided [meltano.yml](https://github.com/bsc-health-data/pydata
 But then, we need a database to load our date. We will use docker to bring up a PostgreSQL instance
 
 ``` 
-docker run --name demo_postgres -e POSTGRES_PASSWORD=londonpie -e POSTGRES_USER=postgres -p 5433:5432 -v ${PWD}/postgres:/var/lib/postgresql/data -v ${PWD}/backup:/backup -d postgres 
+docker run --name demo_postgres -e POSTGRES_PASSWORD=londonpie -e POSTGRES_USER=postgres -p 5432:5432 -v ${PWD}/postgres:/var/lib/postgresql/data -v ${PWD}/backup:/backup -d postgres 
 ```
+NOTE: If port 5432 is not available, port 5433 can be used (remember to change it in the meltano.yml file) 
 
 ```
 >> docker exec -it demo_postgres bash
