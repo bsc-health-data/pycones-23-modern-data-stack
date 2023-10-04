@@ -210,7 +210,7 @@ meltano elt tap-csv target-postgres --transform=skip
 pip install dbt-postgres
 ``` 
 
-See issues below
+See [issues](https://github.com/bsc-health-data/pycones-23-modern-data-stack/blob/main/README.md#issues) below
 
 and then add a Meltano transformer
 
@@ -506,6 +506,9 @@ Try to write a test query, select `postgresql`, and run it.
 
 ### Have a drink, and relax ...
 
+![](https://i.ytimg.com/vi/y3TxcejHw-4/hqdefault.jpg)
+- https://www.youtube.com/watch?v=y3TxcejHw-4
+
 ### Issues
 
 - https://github.com/dbt-labs/dbt-core/pull/8680
@@ -520,8 +523,6 @@ python -m pip install snowplow-tracker
 
 
 
-![](https://i.ytimg.com/vi/y3TxcejHw-4/hqdefault.jpg)
-- https://www.youtube.com/watch?v=y3TxcejHw-4
 
 
 
