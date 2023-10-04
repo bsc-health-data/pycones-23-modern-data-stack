@@ -250,6 +250,9 @@ meltano invoke dbt-postgres:compile
 ```
 
 **DBT models**
+
+Create the following files in `demo/transform/models`:
+
 - sources.yml
 ``` 
 version: 2
@@ -263,7 +266,7 @@ sources:
 
 ``` 
 
-- models/
+- cdm/person.sql
 
 ``` 
 -- person
@@ -312,6 +315,8 @@ select * from person
 
 **Macros**
 
+Create `demo/transform/macros/macros.sql` 
+
 ```
 
 {% macro create_id_from_str(text) %}
@@ -348,7 +353,7 @@ select * from person
 
 **DBT tests**
 
-- schema.yml
+- Create demo/transform/models/schema.yml
 
 ``` 
 version: 2
@@ -362,7 +367,9 @@ models:
           - not_null
           
 
-``` 
+```
+
+The tests are simply macros that return the rows not compliant
 
 ```
 {% test not_null(model, column_name) %}
