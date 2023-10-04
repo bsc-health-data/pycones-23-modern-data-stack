@@ -378,19 +378,22 @@ Most dbt commands produce artifacts:
 
 - manifest.json: produced by commands that read and understand your project
 - run results.json: produced by commands that run, compile, or catalog nodes in your DAG
-- catalog.json: produced by docs generate
-- sources.json: produced by source freshness     
-
+    
 ``` 
 ls -al .meltano/transformers/dbt/target/*.json
 -rw-rw-r-- 1 alabarga alabarga 335593 oct  4 16:52 .meltano/transformers/dbt/target/manifest.json
 -rw-rw-r-- 1 alabarga alabarga   2133 oct  4 16:52 .meltano/transformers/dbt/target/run_results.json
 ```
+- catalog.json: produced by docs generate
 
 ```
 meltano invoke dbt-postgres:docs-generate
+meltano invoke dbt-postgres:docs-serve
 ```
 
+![image](https://github.com/bsc-health-data/pycones-23-modern-data-stack/assets/166339/2b596686-abd3-4d9b-9956-b8f59ba0e500)
+
+- sources.json: produced by source freshness
 
 ### Data gobernance with OpenMetadata
 
@@ -407,6 +410,10 @@ docker compose up -d
 ``` 
 
 Then go to http://localhost:8585 (admin/admin). The ingestion service (Airflow) runs at http://localhost:8080
+
+### Metics with Lightdash
+
+- Install Ligtdash locally https://docs.lightdash.com/self-host/self-host-lightdash-docker-compose/
 
 ### Analyzing data with Superset and Querybook
 
