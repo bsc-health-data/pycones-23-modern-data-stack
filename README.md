@@ -257,7 +257,7 @@ version: 2
 
 sources:
   - name: raw # tables copied from source DB
-    database: hospital_edge
+    database: demo
     schema: raw
     tables:
       - name: patients
