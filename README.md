@@ -548,6 +548,11 @@ python -m pip uninstall snowplow-tracker
 python -m pip uninstall minimal-snowplow-tracker
 python -m pip install snowplow-tracker
 ```
+Changing jsonschema to meltano's requirements 
+```
+python -m pip uninstall jsonschema
+python -m pip install jsonschema==4.19
+```
 
 
 
