@@ -387,6 +387,11 @@ ls -al .meltano/transformers/dbt/target/*.json
 -rw-rw-r-- 1 alabarga alabarga   2133 oct  4 16:52 .meltano/transformers/dbt/target/run_results.json
 ```
 
+```
+meltano invoke dbt-postgres:docs-generate
+```
+
+
 ### Data gobernance with OpenMetadata
 
 - Install OpenMetadata
