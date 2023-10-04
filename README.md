@@ -381,6 +381,12 @@ Most dbt commands produce artifacts:
 - catalog.json: produced by docs generate
 - sources.json: produced by source freshness     
 
+``` 
+ls -al .meltano/transformers/dbt/target/*.json
+-rw-rw-r-- 1 alabarga alabarga 335593 oct  4 16:52 .meltano/transformers/dbt/target/manifest.json
+-rw-rw-r-- 1 alabarga alabarga   2133 oct  4 16:52 .meltano/transformers/dbt/target/run_results.json
+```
+
 ### Data gobernance with OpenMetadata
 
 - Install OpenMetadata
