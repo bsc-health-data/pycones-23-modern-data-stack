@@ -264,7 +264,7 @@ sources:
 - models/
 
 ``` 
--- stg_person
+-- person
 
 {{ config(
     materialized='table',
@@ -352,7 +352,7 @@ select * from person
 version: 2
 
 models:
-  - name: stg_person
+  - name: person
     columns:
       - name: person_id
         tests:
