@@ -245,9 +245,7 @@ DBT_POSTGRES_USER=postgres
 DBT_POSTGRES_PASSWORD=password
 ``` 
 
-``` 
-meltano invoke dbt-postgres:compile
-```
+
 
 **DBT models**
 
@@ -349,7 +347,21 @@ Create `demo/transform/macros/macros.sql`
       END)
 {% endmacro %}
 
+```
+
+- Check everything is all right
+
 ``` 
+meltano invoke dbt-postgres:compile
+```
+
+- And run the models
+
+``` 
+meltano invoke dbt-postgres:run
+```
+
+
 
 **DBT tests**
 
@@ -379,7 +391,13 @@ The tests are simply macros that return the rows not compliant
     where {{ column_name }} is null
 
 {% endtest %}
+```
+
+- Execute the tests
+
 ``` 
+meltano invoke dbt-postgres:test
+```
 
 **DBT artifacts**
 
