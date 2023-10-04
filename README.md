@@ -33,6 +33,7 @@ No specific background knowledge is needed to attend this tutorial, although fam
 - Install [Java](https://www.java.com/en/download/help/download_options.html)
 - Install [docker](https://docs.docker.com/engine/install/)
   - in Linux edit your /etc/hosts and add `172.17.0.1 docker.host.internal`
+- Install git and git-lfs
 
 ## INSTALL COMPONENTS
 
