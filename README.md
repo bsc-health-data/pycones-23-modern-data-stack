@@ -60,6 +60,13 @@ git clone https://github.com/bsc-health-data/pycones-23-modern-data-stack.git
 
 - Generate or download [synthetic data](https://github.com/bsc-health-data/pycones-23-modern-data-stack/blob/main/synthea/)
 
+```
+cd pycones-23-modern-data-stack/synthea
+git lfs pull
+unzip data.zip
+```
+
+
 ## WORKSHOP
 
 - Install [Meltano](https://www.meltano.com/): 
