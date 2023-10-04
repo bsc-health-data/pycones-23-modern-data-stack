@@ -177,7 +177,7 @@ docker run --name demo_postgres -e POSTGRES_PASSWORD=londonpie -e POSTGRES_USER=
 ```
 
 ```
->> docker exec -it demo_postgres
+>> docker exec -it demo_postgres bash
 
 root@691c7587dc9d:/# psql -h localhost -U postgres 
 psql (15.4 (Debian 15.4-1.pgdg120+1))
