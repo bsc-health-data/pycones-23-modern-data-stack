@@ -486,6 +486,7 @@ Try to write a test query, select `postgresql`, and run it.
 
 - https://github.com/dbt-labs/dbt-core/pull/8680
 - https://github.com/dbt-labs/dbt-docs/issues/187
+- https://github.com/dbt-labs/dbt-docs/issues/187
 
 
 
