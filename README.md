@@ -164,6 +164,7 @@ plugins:
       port: 5432
       user: postgres
       database: demo
+      default_target_schema: raw
 ``` 
 or download the provided [meltano.yml](https://github.com/bsc-health-data/pydatalondon23-modern-data-stack/blob/main/meltano/meltano.yml)
 
