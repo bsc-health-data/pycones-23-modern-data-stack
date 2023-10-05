@@ -407,7 +407,7 @@ The tests are simply macros that return the rows not compliant
 meltano invoke dbt-postgres:test
 ```
 
-We can also add [dbt-expectations]()
+We can also add [dbt-expectations](https://github.com/calogica/dbt-expectations), a dbt version of [Great Expectations](https://greatexpectations.io/)
 
 
 **DBT artifacts**
