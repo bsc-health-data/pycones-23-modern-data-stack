@@ -32,7 +32,6 @@ No specific background knowledge is needed to attend this tutorial, although fam
 - Install [Python](https://www.python.org/downloads/)
 - Install [Java](https://www.java.com/en/download/help/download_options.html)
 - Install [docker](https://docs.docker.com/engine/install/)
-  - in Linux edit your /etc/hosts and add `172.17.0.1 docker.host.internal`
 - Install git and git-lfs
 
 ## INSTALL COMPONENTS
@@ -42,6 +41,7 @@ No specific background knowledge is needed to attend this tutorial, although fam
 - Install [PostgreSQL](https://www.postgresql.org): `docker pull postgres` 
   - Install [psql](https://www.timescale.com/blog/how-to-install-psql-on-mac-ubuntu-debian-windows/)
   - Install a SQL client such as [PgAdmin](https://www.pgadmin.org/) or [DBeaver](https://dbeaver.io/) or [VSCode SQL tools](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools)
+- Install [Lightdash](lightdash): `docker pull lightdash/lightdash` 
 - Install [Querybook](https://github.com/pinterest/querybook)
 
 ``` 
