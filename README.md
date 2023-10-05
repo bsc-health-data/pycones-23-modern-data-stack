@@ -50,6 +50,12 @@ cd querybook
 make
 ```
 
+- Have a drink, and relax ...
+
+![](https://i.ytimg.com/vi/y3TxcejHw-4/hqdefault.jpg)
+
+https://www.youtube.com/watch?v=y3TxcejHw-4
+
 
 ## FIRST STEPS
 
@@ -170,12 +176,14 @@ plugins:
 or download the provided [meltano.yml](https://github.com/bsc-health-data/pydatalondon23-modern-data-stack/blob/main/meltano/meltano.yml)
 
 
-But then, we need a database to load our date. We will use docker to bring up a PostgreSQL instance
+Now, we need a database to load our data. We will use docker to bring up a PostgreSQL instance
 
 ``` 
 docker run --name demo_postgres -e POSTGRES_PASSWORD=londonpie -e POSTGRES_USER=postgres -p 5432:5432 -v ${PWD}/postgres:/var/lib/postgresql/data -v ${PWD}/backup:/backup -d postgres 
 ```
 NOTE: If port 5432 is not available, port 5433 can be used (remember to change it in the meltano.yml file) 
+
+... and we create our database **demo**.
 
 ```
 >> docker exec -it demo_postgres bash
@@ -399,6 +407,9 @@ The tests are simply macros that return the rows not compliant
 meltano invoke dbt-postgres:test
 ```
 
+We can also add [dbt-expectations]()
+
+
 **DBT artifacts**
 
 Most dbt commands produce artifacts:
@@ -422,52 +433,7 @@ meltano invoke dbt-postgres:docs-serve
 
 - sources.json: produced by source freshness
 
-### Data gobernance with OpenMetadata
-
-- Install OpenMetadata
-
-``` 
-pip install openmetadata-ingestion[docker]
-metadata docker --start -db postgres
-``` 
-
-``` 
-curl -SL https://github.com/open-metadata/OpenMetadata/releases/download/1.0.2-release/docker-compose-postgres.yml -o docker-compose-postgres.yml
-docker compose up -d
-``` 
-
-Then go to http://localhost:8585 (admin/admin). The ingestion service (Airflow) runs at http://localhost:8080
-
-### Metics with Lightdash
-
-- Install Ligtdash locally https://docs.lightdash.com/self-host/self-host-lightdash-docker-compose/
-
-### Analyzing data with Superset and Querybook
-
-- Install [Superset](https://github.com/apache/superset) 
-
-``` 
-meltano add utility superset --variant apache
-``` 
-
-``` 
-- name: superset
-    variant: apache
-    pip_url: apache-superset>=2.0.0 markupsafe==2.0.1 Werkzeug==2.0.3 WTForms==2.3.0 duckdb-engine==0.6.4 cryptography==3.4.7
-    config:
-      ENABLE_PROXY_FIX: true
-``` 
-
-``` 
-> meltano config superset set SECRET_KEY $(openssl rand -base64 42)
-> meltano invoke superset:create-admin
-> meltano invoke superset:ui
-
-``` 
-
-You can also `meltano invoke superset:load-examples` load some example data to play with
-
-The go to http://localhost:8088 and start analyzing your data
+### Analyzing data with Querybook
 
 - Install [Querybook](https://github.com/pinterest/querybook)
 
@@ -549,18 +515,84 @@ For `Query Engines`, select `postgresql` from the dropdown list, and click `Add 
 
 Open [http://localhost:10001/demo_environment/adhoc/](http://localhost:10001/demo_environment/adhoc/). Switch to the new demo environment
 
-Try to write a test query, select `postgresql`, and run it.
-     
-### Extras
+Try to write a test query and run it.
 
-- Install [Airflow](https://airflow.apache.org/docs/apache-airflow/stable/start.html)
-- Install [Datahub](https://datahubproject.io/docs/quickstart/)
-- Install [Lightdash](https://www.lightdash.com/)
+### Data gobernance with OpenMetadata
 
-### Have a drink, and relax ...
+- Install OpenMetadata
 
-![](https://i.ytimg.com/vi/y3TxcejHw-4/hqdefault.jpg)
-- https://www.youtube.com/watch?v=y3TxcejHw-4
+``` 
+pip install openmetadata-ingestion[docker]
+metadata docker --start -db postgres
+``` 
+
+``` 
+curl -SL https://github.com/open-metadata/OpenMetadata/releases/download/1.0.2-release/docker-compose-postgres.yml -o docker-compose-postgres.yml
+docker compose up -d
+``` 
+
+Then go to http://localhost:8585 (admin/admin). The ingestion service (Airflow) runs at http://localhost:8080
+
+### Metics with Lightdash
+
+- Install Ligtdash locally https://docs.lightdash.com/self-host/self-host-lightdash-docker-compose/
+
+```
+cd ../lightdash
+docker run -p 3000:3000 -p 8080:8080 --env-file .env -v ../demo/transform:/dbt/demo -v ./lightdash.yml:/lightdash/lightdash.yml lightdash/lightdash
+```
+
+- Install lightdash CLI
+
+```
+npm install -g @lightdash/cli@0.799.0
+```
+
+Since Lightdash will call **dbt** we need to reinstall `minimal-snowplow-tracker`. See [issues](https://github.com/bsc-health-data/pycones-23-modern-data-stack/blob/main/README.md#issues) below.
+
+- Go to https://locahost:8080
+- Create a user
+
+- login to lightdash
+
+
+```
+lightdash login http://localhost:8080 --token c3dbbdc4cafaaf5d5e52bed08a922e2c
+```
+
+- Create project
+
+```
+lightdash deploy --create demo --project-dir ../demo/transform --profiles-dir ./
+```
+
+### Create dashboards with Superset
+
+- Install [Superset](https://github.com/apache/superset) 
+
+``` 
+meltano add utility superset --variant apache
+``` 
+
+``` 
+- name: superset
+    variant: apache
+    pip_url: apache-superset>=2.0.0 markupsafe==2.0.1 Werkzeug==2.0.3 WTForms==2.3.0 duckdb-engine==0.6.4 cryptography==3.4.7
+    config:
+      ENABLE_PROXY_FIX: true
+``` 
+
+``` 
+> meltano config superset set SECRET_KEY $(openssl rand -base64 42)
+> meltano invoke superset:create-admin
+> meltano invoke superset:ui
+
+``` 
+
+You can also `meltano invoke superset:load-examples` load some example data to play with
+
+The go to http://localhost:8088 and start analyzing your data
+
 
 ### Issues
 
