@@ -545,12 +545,12 @@ Try to write a test query and run it.
 - Install OpenMetadata
 
 ``` 
-pip install openmetadata-ingestion[docker]
-metadata docker --start -db postgres
-``` 
+curl -SL https://github.com/open-metadata/OpenMetadata/releases/download/1.0.2-release/docker-compose-postgres.yml -o docker-compose.yml
 
-``` 
-curl -SL https://github.com/open-metadata/OpenMetadata/releases/download/1.0.2-release/docker-compose-postgres.yml -o docker-compose-postgres.yml
+```
+You already have a `docker-compose.yml` file. You should edi to reflect the location of your dbt artifacts
+
+```
 docker compose up -d
 ``` 
 
