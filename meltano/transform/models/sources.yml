@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw # tables copied from source DB
+    database: demo
+    schema: raw
+    tables:
+      - name: patients
