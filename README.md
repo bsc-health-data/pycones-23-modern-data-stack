@@ -604,32 +604,7 @@ lightdash deploy --create demo --project-dir ../demo/transform --profiles-dir ./
 
 ### Create dashboards with Superset
 
-- Install [Superset](https://github.com/apache/superset) as a meltano utility
-
-``` 
-meltano add utility superset --variant apache
-``` 
-
-``` 
-- name: superset
-    variant: apache
-    pip_url: apache-superset>=2.0.0 markupsafe==2.0.1 Werkzeug==2.0.3 WTForms==2.3.0 duckdb-engine==0.6.4 cryptography==3.4.7
-    config:
-      ENABLE_PROXY_FIX: true
-``` 
-
-``` 
-> meltano config superset set SECRET_KEY $(openssl rand -base64 42)
-> meltano invoke superset:create-admin
-> meltano invoke superset:ui
-
-``` 
-
-You can also `meltano invoke superset:load-examples` load some example data to play with
-
-The go to http://localhost:8088 and start analyzing your data
-
-- or install Superset using docker https://hub.docker.com/r/apache/superset
+- Install [Superset](https://github.com/apache/superset) using docker https://hub.docker.com/r/apache/superset
 
 ### Issues
 
