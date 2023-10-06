@@ -71,6 +71,9 @@ git clone https://github.com/bsc-health-data/pycones-23-modern-data-stack.git
 ```
 cd pycones-23-modern-data-stack/synthea
 git lfs pull
+mkdir data
+mv data.zip data
+cd data
 unzip data.zip
 ```
 
@@ -105,12 +108,6 @@ Check Meltano [getting started guide](https://docs.meltano.com/getting-started/p
 cd demo
 ```
 
-Add environment
-
-```
-meltano environment add dev
-```
-
 We are now going to need Extractors and Loaders to extract data from a source and to load it somewhere else. Once data is loaded, we could transform it with dbt. (ELT)
 
 ![](https://blog.panoply.io/hs-fs/hubfs/Blog%20Images/Content%20Blog%20Images/etl%20pipeline%20in%20singer.png?width=1002&name=etl%20pipeline%20in%20singer.png)
@@ -120,14 +117,7 @@ We will use a csv extractor and we will load it to an instance of PostgreSQL.
 **Setting up the extractor and the loader**
 
 Now that we have our db instance up and running, let's setup a csv extractor.
-To find the right extractor, we can explore them by doing:
-
-``` 
-meltano discover extractors
-```
-NOTE: this command is **DEPRECATED** is later meltano versions
-
-Check Extractors web page: https://hub.meltano.com/extractors/
+To find the right extractor, check Extractors web page: https://hub.meltano.com/extractors/
 
 And then we can add it (and test it):
 ``` 
@@ -208,7 +198,7 @@ We can check the configuration needed
 
 For PostgreSQL password, we use the .env file (remember to use the same password as the one you used when running the docker container)
 ``` 
-echo 'export TARGET_POSTGRES_PASSWORD=password' > .env
+echo 'export TARGET_POSTGRES_PASSWORD=londonpie' > .env
 ``` 
 
 Now we can run our extraction-load task:
