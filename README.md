@@ -409,6 +409,13 @@ meltano invoke dbt-postgres:test
 
 We can also add [dbt-expectations](https://github.com/calogica/dbt-expectations), a dbt version of [Great Expectations](https://greatexpectations.io/)
 
+``` 
+- name: gender_concept_id
+	tests:
+	    - dbt_expectations.expect_column_values_to_be_in_set:
+		value_set: [8507,8532,0]
+		quote_values: false
+```
 
 **DBT artifacts**
 
@@ -461,49 +468,50 @@ Sign up as a new user and use the demo setup. The first signed up user will be a
 
 ![](https://www.querybook.org/assets/images/Querybook_concepts-835dbf4a6c54a65117342e0dca244654.png)
 
-    - A query engine can be associated with a metastore.
-    - An environment can contain multiple query engines.
-    - A user can be added to one or many environments, depending on the data source(s) they are granted access to and the environment(s) that have access.
-    - Metastore can be shared between environments since they are only referenced indirectly by query engines.
+- A query engine can be associated with a metastore.
+- An environment can contain multiple query engines.
+- A user can be added to one or many environments, depending on the data source(s) they are granted access to and the environment(s) that have access.
+- Metastore can be shared between environments since they are only referenced indirectly by query engines.
 
  Click `Query Engine` to add a new query engine
 
-    - Provide a name for the query engine.
-    - Select `Postgresql` as the language.
-    - Select `sqlalchemy` as the executor.
-    - Input the connection string, which should look like
-        ```
-        postgresql://<username>:<password>@<server-host>:<port>/<database>
-        ```
-        Please refer to the SqlAlchemy [documentation](https://docs.sqlalchemy.org/en/20/core/engines.html#postgresql) for the connection string format.
-    - Select `SelectOneChecker` as the status checker
+- Provide a name for the query engine.
+- Select `Postgresql` as the language.
+- Select `sqlalchemy` as the executor.
+- Input the connection string, which should look like
 
-    :::caution About localhost
+```
+postgresql://<username>:<password>@<server-host>:<port>/<database>
+```
+Please refer to the SqlAlchemy [documentation](https://docs.sqlalchemy.org/en/20/core/engines.html#postgresql) for the connection string format.
 
-    If Querybook and PostgresSQL are both running on the same machine, like is our case, you'll need some extra change.
+- Select `SelectOneChecker` as the status checker
 
-    **Mac or Ubuntu**
+NOTE: caution About localhost
 
-    Please use `host.docker.internal` instead of `localhost` as the server address. e.g. `postgresql://<username>:<password>@host.docker.internal:5432/<database>`
+If Querybook and PostgresSQL are both running on the same machine, like is our case, you'll need some extra change.
 
-    **For other Linux distros**
+**Mac or Ubuntu**
 
-    Before executing `make` pr `docker-compose`
+Please use `host.docker.internal` instead of `localhost` as the server address. e.g. `postgresql://<username>:<password>@host.docker.internal:5432/<database>`
 
-    - update `docker-compose.yml` to add `network_mode=host` for below services
-        - web
-        - worker
-        - scheduler
-    - update `containers/bundled_querybook_config.yaml` to use `localhost` instead of service names
+**For other Linux distros**
 
-    ```yaml
-    DATABASE_CONN: mysql+pymysql://test:passw0rd@localhost:3306/querybook2?charset=utf8mb4
-    REDIS_URL: redis://localhost:6379/0
-    ELASTICSEARCH_HOST: localhost:9200
-    ```
+Before executing `make` pr `docker-compose`
 
-    Then keep using `localhost` as the server host in the connection string
-    :::
+- update `docker-compose.yml` to add `network_mode=host` for below services
+- web
+- worker
+- scheduler
+- update `containers/bundled_querybook_config.yaml` to use `localhost` instead of service names
+
+```yaml
+	DATABASE_CONN: mysql+pymysql://test:passw0rd@localhost:3306/querybook2?charset=utf8mb4
+	REDIS_URL: redis://localhost:6379/0
+	ELASTICSEARCH_HOST: localhost:9200
+```
+
+Then keep using `localhost` as the server host in the connection string
 
 Click `Test Connection` to see if it can connect to the database correctly. If it fails, go back and check the settings above and ensure that the database server is ready for connection. You can use command-line tools like `psql` to try to connect with the same connection settings.
 
@@ -552,9 +560,7 @@ Since Lightdash will call **dbt** we need to reinstall `minimal-snowplow-tracker
 
 - Go to https://locahost:8080
 - Create a user
-
 - login to lightdash
-
 
 ```
 lightdash login http://localhost:8080 --token c3dbbdc4cafaaf5d5e52bed08a922e2c
