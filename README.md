@@ -521,9 +521,9 @@ Before executing `make` pr `docker-compose`
 - update `containers/bundled_querybook_config.yaml` to use `localhost` instead of service names
 
 ```yaml
-	DATABASE_CONN: mysql+pymysql://test:passw0rd@localhost:3306/querybook2?charset=utf8mb4
-	REDIS_URL: redis://localhost:6379/0
-	ELASTICSEARCH_HOST: localhost:9200
+DATABASE_CONN: mysql+pymysql://test:passw0rd@localhost:3306/querybook2?charset=utf8mb4
+REDIS_URL: redis://localhost:6379/0
+ELASTICSEARCH_HOST: localhost:9200
 ```
 
 Then keep using `localhost` as the server host in the connection string
