@@ -465,13 +465,6 @@ git clone https://github.com/pinterest/querybook.git
 cd querybook
 make
 ``` 
-
-or run it directly
-
-``` 
-cd querybook
-docker compose up
-``` 
 Then go to http://localhost:10001/
 
 Sign up as a new user and use the demo setup. The first signed up user will be added as the admin.
