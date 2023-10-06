@@ -42,8 +42,8 @@ No specific background knowledge is needed to attend this tutorial, although fam
   - Install [psql](https://www.timescale.com/blog/how-to-install-psql-on-mac-ubuntu-debian-windows/)
   - Install a SQL client such as [PgAdmin](https://www.pgadmin.org/) or [DBeaver](https://dbeaver.io/) or [VSCode SQL tools](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools)
 - Install [Lightdash](lightdash): `docker pull lightdash/lightdash` 
+- Install [Superset](https://superset.apache.org/) `docker pull apache/superset` (Optional)
 - Install [Querybook](https://github.com/pinterest/querybook)
-- Install [Superset](https://superset.apache.org/) `docker pull apache/superset`
 
 ``` 
 git clone https://github.com/pinterest/querybook.git
