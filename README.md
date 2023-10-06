@@ -558,6 +558,21 @@ Then go to http://localhost:8585 (admin/admin). The ingestion service (Airflow) 
 
 ### Metics with Lightdash
 
+- Define environment variables in `.env`
+
+```
+LIGHTDASH_SECRET="mi secreto"
+PGHOST=host.docker.internal
+PGPORT=5432
+PGUSER=postgres
+PGPASSWORD=londonpie
+PGDATABASE=postgres
+DBT_DEMO_DIR=/dbt/demo
+LIGHTDASH_CONFIG_FILE=/lightdash/lightdash.yml
+
+```
+
+
 - Install Ligtdash locally https://docs.lightdash.com/self-host/self-host-lightdash-docker-compose/
 
 ```
