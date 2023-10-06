@@ -409,6 +409,21 @@ meltano invoke dbt-postgres:test
 
 We can also add [dbt-expectations](https://github.com/calogica/dbt-expectations), a dbt version of [Great Expectations](https://greatexpectations.io/)
 
+We add a `packages.yaml` file
+
+``` 
+packages:
+  - package: calogica/dbt_expectations
+    version: [">=0.9.0", "<0.10.0"]
+```
+and run
+
+``` 
+meltano invoke dbt-postgres:deps
+```
+
+and edit our `schema.yml` to add the new tests
+
 ``` 
 - name: gender_concept_id
 	tests:
