@@ -1,0 +1,16 @@
+config:
+  send_anonymous_usage_stats: False
+  use_colors: True
+meltano:
+  target: "dev"
+  outputs:
+    dev:
+      type: postgres
+      host: "localhost"
+      user: "postgres"
+      password: "londonpie"
+      port: 5432
+      sslmode: disable
+      dbname: "demo"
+      schema: "cdm"
+      threads: 2
