@@ -538,7 +538,8 @@ Try to write a test query and run it.
 
 - Install OpenMetadata
 
-``` 
+```
+cd openmetada
 curl -SL https://github.com/open-metadata/OpenMetadata/releases/download/1.0.2-release/docker-compose-postgres.yml -o docker-compose.yml
 
 ```
