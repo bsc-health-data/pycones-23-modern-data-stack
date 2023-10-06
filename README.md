@@ -604,7 +604,7 @@ lightdash deploy --create demo --project-dir ../demo/transform --profiles-dir ./
 
 ### Create dashboards with Superset
 
-- Install [Superset](https://github.com/apache/superset) 
+- Install [Superset](https://github.com/apache/superset) as a meltano utility
 
 ``` 
 meltano add utility superset --variant apache
@@ -629,6 +629,7 @@ You can also `meltano invoke superset:load-examples` load some example data to p
 
 The go to http://localhost:8088 and start analyzing your data
 
+- or install Superset using docker https://hub.docker.com/r/apache/superset
 
 ### Issues
 
