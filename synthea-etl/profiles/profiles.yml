@@ -2,7 +2,7 @@
 # For more information on how to configure this file, please see:
 # https://github.com/fishtown-analytics/dbt/blob/master/sample.profiles.yml
 
-iomed:
+prod:
   target: synthea
   outputs:
     synthea:
