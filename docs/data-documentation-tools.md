@@ -15,7 +15,7 @@ This repository contains a curated list of some data documentation and observabi
 | [📙 CKAN](#ckan)         |                                | [🔍 DataKitchen Open Source Data Observability](#datakitchen)| [📕 Informatica](#informatica) |
 | [📙 Magda](#magda)       |                                |                                | [📕 Stemma](#stemma)          |
 | [📙 OpenDataDiscovery](#opendatadiscovery)|                                |                                | [📕 Talend](#talend) |
-| |        [📙 Amundsen](#amundsen)                           |                                | [📕 Select Star](#selectstar) |
+| [📙 Amundsen](#amundsen) |                                   |                                | [📕 Select Star](#selectstar) |
 | [📙 Meta\#Grid](#metagrid)|                                |                                | |
 | [📙 Grai](#grai) |                                |                                | |
 
@@ -71,41 +71,6 @@ Definitions:
 <a name="opensource"></a>
 ## 📙 Open-Source Data Catalogs
 
-<a name="amundsen"></a>
-### Amundsen 
-[Website](https://www.amundsen.io/) | [GitHub](https://github.com/amundsen-io/amundsen)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/amundsen-io/amundsen/graphs/commit-activity)
-![](https://img.shields.io/github/stars/amundsen-io/amundsen.svg?style=social)
-
-A popular open-source data catalog for metadata management and data discovery originated from Lyft. Created by Amundsen maintainers, [Stemma](stemma.ai) provides a managed version of an enterprise data catalog, inspired by Amundsen.
-
-|Based on Open Standard | Search-based | Network-based | Lineage-based | Federation | ML 1st Citizen | Data Quality | End-to-end Lineage | Observability | Column-level lineage | Data collaboration |
-|:--:|:----:|:---:|:---:|:--:|:---:|:--:|:---:|:--:|:---:|:--:| 
-| ❌ | ✔️  | ✔️  | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-
-<details>
-<summary>More features</summary>
-<br>
-<ul>
-<li><b>Strategy:</b> Push </li>
-<li><b>UX personalization:</b> No</li> 
-<li><b>AI autowiring:</b> No</li> 
-<li><b>Rich data profiling:</b>  No</li> 
-<li><b>Recommendations:</b> Yes </li>
-<li><b>Schemas, Description:</b> Yes</li>
-<li><b>Complex schemas:</b> No </li>
-<li><b>Data preview:</b> Yes </li>
-<li><b>Column statistics:</b> Yes </li>
-<li><b>Data owner:</b> Yes</li>
-<li><b>Top data users:</b> Yes </li>
-<li><b>Change notifications:</b>No </li>
-<li><b>Change feed:</b> No </li>
-<li><b>Deployment:</b>  </li> 
-<li><b>Supported data sources:</b> Hive, Redshift, Druid, RDBMS, Presto, Snowflake </li>
-</ul>
-</details>
-
-<br>
 
 <a name="datahub"></a>
 ### DataHub
@@ -178,6 +143,80 @@ DataHub is an open-source data catalog enabling data discovery, data observabili
 </details>
 
 <br>
+
+<a name="openmetadata"></a>
+### OpenMetadata 
+
+[Website](https://open-metadata.org/) | [GitHub](https://github.com/open-metadata/OpenMetadata)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/open-metadata/OpenMetadata/commits/main)
+![](https://img.shields.io/github/stars/open-metadata/OpenMetadata.svg?style=social)
+
+OpenMetadata is the all-in-one platform for data collaboration, discovery, governance, lineage, and quality that lets you focus on building and analyzing.
+
+|Based on Open Standard | Search-based | Network-based | Lineage-based | Federation | ML 1st Citizen | Data Quality | End-to-end Lineage | Observability | Column-level lineage | Data collaboration |
+|:--:|:----:|:---:|:---:|:--:|:---:|:--:|:---:|:--:|:---:|:--:|
+| ✔️ | ✔️  | ✔️  | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ✔️ | ✔️ |
+
+<details>
+<summary>More features</summary>
+<br>
+<ul>
+<li><b>Strategy:</b> Push/Pull </li>
+<li><b>UX personalization:</b> No </li> 
+<li><b>Rich data profiling:</b> Yes </li>
+<li><b>Data collaboration:</b> Yes </li>
+<li><b>Schemas, Description:</b> Yes</li>
+<li><b>Complex schemas:</b> Yes </li>
+<li><b>Data preview:</b> Yes </li>
+<li><b>Column statistics:</b> Yes </li>
+<li><b>Data owner:</b> Yes </li>
+<li><b>Change notifications:</b> Yes </li>
+<li><b>Change feed:</b> Yes </li>
+<li><b>Metadata versioning:</b> Yes </li>
+<li><b>SaaS:</b> Yes </li>  
+<li><b>Third-party integrations:</b> Dbt, Great Expectations, and Prefect </li>
+<li><b>Supported data sources:</b> Airbyte, Airflow, Athena, AzureSQL, BigQuery, Clickhouse, Dagster, Databricks, DB2, DeltaLake, Druid, DynamoDB, Fivetran, Glue, Glue, Hive, Kafka, Looker, MariaDB, Metabase, MlFlow, Mode, MSSQL, MySQL, NiFi, Oracle, Postgres, PowerBI, Presto, Redash, Redpanda, Redshift, Salesforce, SingleStore, Snowflake, Superset, Tableau, Trino, and Vertica </li>
+</ul>
+</details>
+
+<br>
+
+<a name="amundsen"></a>
+### Amundsen 
+[Website](https://www.amundsen.io/) | [GitHub](https://github.com/amundsen-io/amundsen)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/amundsen-io/amundsen/graphs/commit-activity)
+![](https://img.shields.io/github/stars/amundsen-io/amundsen.svg?style=social)
+
+A popular open-source data catalog for metadata management and data discovery originated from Lyft. Created by Amundsen maintainers, [Stemma](stemma.ai) provides a managed version of an enterprise data catalog, inspired by Amundsen.
+
+|Based on Open Standard | Search-based | Network-based | Lineage-based | Federation | ML 1st Citizen | Data Quality | End-to-end Lineage | Observability | Column-level lineage | Data collaboration |
+|:--:|:----:|:---:|:---:|:--:|:---:|:--:|:---:|:--:|:---:|:--:| 
+| ❌ | ✔️  | ✔️  | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+
+<details>
+<summary>More features</summary>
+<br>
+<ul>
+<li><b>Strategy:</b> Push </li>
+<li><b>UX personalization:</b> No</li> 
+<li><b>AI autowiring:</b> No</li> 
+<li><b>Rich data profiling:</b>  No</li> 
+<li><b>Recommendations:</b> Yes </li>
+<li><b>Schemas, Description:</b> Yes</li>
+<li><b>Complex schemas:</b> No </li>
+<li><b>Data preview:</b> Yes </li>
+<li><b>Column statistics:</b> Yes </li>
+<li><b>Data owner:</b> Yes</li>
+<li><b>Top data users:</b> Yes </li>
+<li><b>Change notifications:</b>No </li>
+<li><b>Change feed:</b> No </li>
+<li><b>Deployment:</b>  </li> 
+<li><b>Supported data sources:</b> Hive, Redshift, Druid, RDBMS, Presto, Snowflake </li>
+</ul>
+</details>
+
+<br>
+
 
 <a name="marquez"></a>
 ### Marquez
@@ -364,42 +403,7 @@ First open-source data discovery and observability platform. ODD Platform is bas
 
 <br>
 
-<a name="openmetadata"></a>
-### OpenMetadata 
 
-[Website](https://open-metadata.org/) | [GitHub](https://github.com/open-metadata/OpenMetadata)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/open-metadata/OpenMetadata/commits/main)
-![](https://img.shields.io/github/stars/open-metadata/OpenMetadata.svg?style=social)
-
-OpenMetadata is the all-in-one platform for data collaboration, discovery, governance, lineage, and quality that lets you focus on building and analyzing.
-
-|Based on Open Standard | Search-based | Network-based | Lineage-based | Federation | ML 1st Citizen | Data Quality | End-to-end Lineage | Observability | Column-level lineage | Data collaboration |
-|:--:|:----:|:---:|:---:|:--:|:---:|:--:|:---:|:--:|:---:|:--:|
-| ✔️ | ✔️  | ✔️  | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ✔️ | ✔️ |
-
-<details>
-<summary>More features</summary>
-<br>
-<ul>
-<li><b>Strategy:</b> Push/Pull </li>
-<li><b>UX personalization:</b> No </li> 
-<li><b>Rich data profiling:</b> Yes </li>
-<li><b>Data collaboration:</b> Yes </li>
-<li><b>Schemas, Description:</b> Yes</li>
-<li><b>Complex schemas:</b> Yes </li>
-<li><b>Data preview:</b> Yes </li>
-<li><b>Column statistics:</b> Yes </li>
-<li><b>Data owner:</b> Yes </li>
-<li><b>Change notifications:</b> Yes </li>
-<li><b>Change feed:</b> Yes </li>
-<li><b>Metadata versioning:</b> Yes </li>
-<li><b>SaaS:</b> Yes </li>  
-<li><b>Third-party integrations:</b> Dbt, Great Expectations, and Prefect </li>
-<li><b>Supported data sources:</b> Airbyte, Airflow, Athena, AzureSQL, BigQuery, Clickhouse, Dagster, Databricks, DB2, DeltaLake, Druid, DynamoDB, Fivetran, Glue, Glue, Hive, Kafka, Looker, MariaDB, Metabase, MlFlow, Mode, MSSQL, MySQL, NiFi, Oracle, Postgres, PowerBI, Presto, Redash, Redpanda, Redshift, Salesforce, SingleStore, Snowflake, Superset, Tableau, Trino, and Vertica </li>
-</ul>
-</details>
-
-<br>
 
 <a name="metagrid"></a>
 ### Meta\#Grid 
