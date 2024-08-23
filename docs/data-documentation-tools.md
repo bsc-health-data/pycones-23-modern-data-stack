@@ -8,14 +8,14 @@ This repository contains a curated list of some data documentation and observabi
 
 | [OSS Data Catalogs](#opensource) | [ Proprietary Monocloud DCs](#monocloud)| [ Proprietary Observability Tools](#observability) | [Other Proprietary DCs](#proprietary) |
 |--------------------------|--------------------------------|---------------------------------|--------------------------------|
-| [📙 Amundsen](#amundsen) |  [📒 Google DC](#google)       | [🔍 Monte Carlo](#montecarlo)  | [📕 Alation](#alation)         |
-| [📙 DataHub](#datahub)   |  [📒 Azure DC](#azure)         | [🔍 Databand](#databand)       | [📕 Atlan](#atlan)             |
+| [📙 DataHub](#datahub)|  [📒 Google DC](#google)       | [🔍 Monte Carlo](#montecarlo)  | [📕 Alation](#alation)         |
+| [📙 OpenMetadata](#openmetadata) |  [📒 Azure DC](#azure)         | [🔍 Databand](#databand)       | [📕 Atlan](#atlan)             |
 | [📙 Marquez](#marquez)   |                                | [🔍 Datafold](#datafold)       | [📕 Collibra](#collibra)       |
 | [📙 Atlas](#atlas)       |                                | [🔍 Ataccama](#ataccama)       | [📕 DataGalaxy](#datagalaxy) |
 | [📙 CKAN](#ckan)         |                                | [🔍 DataKitchen Open Source Data Observability](#datakitchen)| [📕 Informatica](#informatica) |
 | [📙 Magda](#magda)       |                                |                                | [📕 Stemma](#stemma)          |
 | [📙 OpenDataDiscovery](#opendatadiscovery)|                                |                                | [📕 Talend](#talend) |
-| [📙 OpenMetadata](#openmetadata)|                                |                                | [📕 Select Star](#selectstar) |
+| |        [📙 Amundsen](#amundsen)                           |                                | [📕 Select Star](#selectstar) |
 | [📙 Meta\#Grid](#metagrid)|                                |                                | |
 | [📙 Grai](#grai) |                                |                                | |
 
